@@ -1,8 +1,7 @@
 from flask import Flask, send_from_directory, jsonify, request
 import json
-import os
 
-app = Flask(__name__, static_url_path='', static_folder='.')
+app = Flask(__name__, static_folder='.', static_url_path='')
 
 @app.route('/')
 def index():
@@ -26,7 +25,7 @@ def get_movie():
     for movie in data:
         if movie['id'] == movie_id:
             return jsonify(movie)
-    return jsonify({'error': 'Not found'}), 404
+    return jsonify({"error": "Not found"}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
