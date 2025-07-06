@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FlixOcean</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+  <header class="text-center text-3xl text-yellow-400 p-4 font-bold">FlixOcean</header>
+  <div class="flex justify-center">
+    <input type="text" id="searchBar" placeholder="Search..." class="p-2 text-black rounded w-1/2"/>
+  </div>
+  <div id="movieGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4"></div>
+  <div class="flex justify-center space-x-4">
+    <button onclick="prevPage()" class="bg-yellow-500 px-4 py-2 rounded">Prev</button>
+    <span id="pageNumber"></span>
+    <button onclick="nextPage()" class="bg-yellow-500 px-4 py-2 rounded">Next</button>
+  </div>
+  <script src="assets/main.js"></script>
+</body>
+</html>
