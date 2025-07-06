@@ -1,5 +1,6 @@
 from flask import Flask, send_from_directory, jsonify, request
 import json
+import os
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
@@ -13,6 +14,8 @@ def movie():
 
 @app.route('/api/movies')
 def get_movies():
+    if not os.path.exists('data.json'):
+        return jsonify([])
     with open('data.json') as f:
         data = json.load(f)
     return jsonify(data)
@@ -20,6 +23,8 @@ def get_movies():
 @app.route('/api/movie')
 def get_movie():
     movie_id = request.args.get('id')
+    if not os.path.exists('data.json'):
+        return jsonify({"error": "Data not found"})
     with open('data.json') as f:
         data = json.load(f)
     for movie in data:
